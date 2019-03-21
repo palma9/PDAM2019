@@ -1,0 +1,15 @@
+{
+    "LOGOUT": "LogOut",
+    "SCHOOLS":"Schools",
+    "TEACHERMANAGERS": "Teacher Managers",
+    "CREATESCHOOL": "Create school",
+    "SCHEDULE": "Schedule",
+    "DAILYSCHEDULE": "Daily schedule",
+    "NOTIFICATIONS": "Notifications",
+    "PROFILE": "Profile",
+    "CLASSROOMS": "Classroom",
+    "SUBJECTS": "Subjects",
+    "GRADES": "Grades",
+    "TEACHERS": "Teachers",
+    "SUBSTITUTIONS": "Substitutions"
+}

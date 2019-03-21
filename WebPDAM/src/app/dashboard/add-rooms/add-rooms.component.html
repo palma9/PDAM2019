@@ -1,0 +1,13 @@
+<div [formGroup]="roomArrayForm">
+  <div formArrayName="roomForm" *ngFor="let item of formData.controls; let i = index;">
+    <div [formGroupName]="i" fxLayout="row wrap">
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Number" type="number" formControlName="classNumber" required>
+      </mat-form-field>
+    </div>
+    <hr>
+  </div>
+</div>
+<button mat-stroked-button class="mb-5" color="accent" (click)="addRoom()">Add Room</button>
+<button mat-stroked-button class="mb-5" color="warn" (click)="removeLastRoom()">Remove Last</button>
+<button mat-fab color="primary" class="fab" (click)="submit()" [disabled]="!roomArrayForm.valid"><mat-icon>send</mat-icon></button>

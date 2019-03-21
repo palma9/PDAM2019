@@ -1,0 +1,14 @@
+<mat-accordion>
+  <mat-expansion-panel *ngFor="let s of schoolList">
+    <mat-expansion-panel-header>
+      <mat-panel-title>{{s.name}}</mat-panel-title>
+    </mat-expansion-panel-header>
+    <p><b>Fin suscripción.</b> {{s.subscriptionEnd | date : "dd.MM.y"}}</p>
+    <p><b>Dirección.</b> {{s.address}}, {{s.city}}, {{s.country}}</p>
+    <p><b>Contacto.</b> {{s.contact}}</p>
+    <button mat-stroked-button color="primary" (click)="openDialogEditSchool(s)">Editar</button>
+    <button mat-stroked-button color="accent" class="mx-1">Extender suscripción</button>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<button mat-fab color="primary" class="fab" (click)="openDialogNewSchool()"><mat-icon>add</mat-icon></button>

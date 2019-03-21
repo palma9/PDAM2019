@@ -1,0 +1,32 @@
+<div fxLayout="row wrap">
+  <mat-card *ngFor="let t of teachers?.rows">
+    <mat-card-header class="bg-cover" [style.background-image]="'url(' + t.picture + ')'">
+    </mat-card-header>
+    <mat-card-content>{{t.name}}
+      <a class="pointer float-right" [matMenuTriggerFor]="menu" *ngIf="isSchoolManager()">
+        <mat-icon>more_vert</mat-icon>
+      </a>
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="openDialogNewAbsence(t)">
+          <mat-icon>new_releases</mat-icon>
+          <span>New Absence</span>
+        </button>
+        <button mat-menu-item (click)="openDialogEditTeacher(t)">
+          <mat-icon>edit</mat-icon>
+          <span>Edit</span>
+        </button>
+        <button mat-menu-item (click)="openUploadDialog(t)">
+          <mat-icon>add_photo_alternate</mat-icon>
+          <span>Edit picture</span>
+        </button>
+        <button mat-menu-item (click)="openDialogDeleteTeacher(t)">
+          <mat-icon>delete</mat-icon>
+          <span>Delete</span>
+        </button>
+      </mat-menu>
+    </mat-card-content>
+  </mat-card>
+</div>
+<button mat-fab color="primary" class="fab" (click)="openDialogNewTeacher()" *ngIf="isSchoolManager()">
+  <mat-icon>add</mat-icon>
+</button>

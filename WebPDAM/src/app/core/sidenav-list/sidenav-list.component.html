@@ -1,0 +1,21 @@
+<div class="pa-1 mat-deep-purple-A700">
+    <img class="radius-circle" [src]="loggedUser.picture" width="100" height="100">
+    <div>{{loggedUser.name}}</div>
+    <div>{{loggedUser.email}}</div>
+</div>
+<mat-nav-list appAccordion class="navigation">
+    <mat-list-item appAccordionLink *ngFor="let menuitem of menuService.getAll()" (click)="onSidenavClose()" [routerLink]="['/', menuitem.state]">
+        <a appAccordionToggle class="relative">
+            <mat-icon>{{ menuitem.icon }}</mat-icon>
+            <span>{{ menuitem.name | translate }}</span>
+            <span fxFlex></span>
+        </a>
+    </mat-list-item>
+    <mat-list-item appAccordionLink (click)="authService.logout()">
+        <a appAccordionToggle class="relative">
+            <mat-icon>exit_to_app</mat-icon>
+            <span>{{ logout | translate }}</span>
+            <span fxFlex></span>
+        </a>
+    </mat-list-item>
+</mat-nav-list>

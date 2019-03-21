@@ -1,0 +1,22 @@
+<h1 mat-dialog-title>New absence to {{teacher.name}}</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div>
+    <div mat-dialog-content class="checkbox-container">
+      <mat-form-field class="w-100">
+        <input matInput [matDatepicker]="picker" placeholder="Choose a date" (dateChange)="dateChange($event)"
+          [formControl]="form.controls['date']">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      <mat-form-field class="w-100">
+        <mat-select placeholder="Schedules" multiple [formControl]="form.controls['schedule']">
+          <mat-option *ngFor="let sc of allSchedules" [value]="sc.id">Tramo: {{sc.timeInterval}} - {{sc.subject.name}}
+          </mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <div mat-dialog-actions class="button-container">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Submit</button>
+    </div>
+  </div>
+</form>

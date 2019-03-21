@@ -1,0 +1,13 @@
+@import "assets/styles/scss/material.variables";
+@import "assets/styles/scss/app.variables";
+@import "assets/styles/scss/mixins/breakpoints";
+@import "assets/styles/scss/mixins/hover";
+@import "assets/styles/scss/mixins/text-emphasis";
+@import "assets/styles/scss/utilities/background";
+@import "assets/styles/scss/utilities/general";
+@import "assets/styles/scss/utilities/spacing";
+@import "assets/styles/scss/utilities/text";
+
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

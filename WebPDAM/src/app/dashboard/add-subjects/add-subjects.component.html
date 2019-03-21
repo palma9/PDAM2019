@@ -1,0 +1,20 @@
+<div [formGroup]="subjectArrayForm">
+  <div formArrayName="subjectForm" *ngFor="let item of formData.controls; let i = index;">
+    <div [formGroupName]="i" fxLayout="row wrap">
+      <mat-form-field class="w-50">
+        <input matInput placeholder="Name" type="text" formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field class="w-50">
+        <mat-select placeholder="Grade" formControlName="grade">
+          <mat-option *ngFor="let grade of gradeList" [value]="grade.id">{{grade.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <hr>
+  </div>
+</div>
+<button mat-stroked-button class="mb-5" color="accent" (click)="addSubject()">Add Subject</button>
+<button mat-stroked-button class="mb-5" color="warn" (click)="removeLastSubject()">Remove Last</button>
+<button mat-fab color="primary" class="fab" (click)="submit()" [disabled]="!subjectArrayForm.valid">
+  <mat-icon>send</mat-icon>
+</button>

@@ -1,0 +1,18 @@
+mat-card {
+    min-width: 120px;
+    max-width: 200px;
+    width: 35vw;
+    margin: 15px;
+    padding: 0%;
+
+    mat-card-header {
+        min-height: 120px;
+        max-height: 200px;
+        height: 35vw;
+    }
+        
+    mat-card-content {
+        padding: 15px;
+        overflow-x: auto;
+    }
+}

@@ -1,0 +1,37 @@
+<mat-form-field class="w-25">
+  <mat-select placeholder="Grade" (valueChange)="onFirstFilter($event)">
+    <mat-option value="0">Teacher</mat-option>
+    <mat-option value="1">Group</mat-option>
+    <mat-option value="2">Class</mat-option>
+  </mat-select>
+</mat-form-field>
+<mat-form-field class="w-25" *ngIf="filterList">
+  <mat-select placeholder="Filter" (valueChange)="filter($event)">
+    <mat-option *ngFor="let f of filterList" [value]="f.id">{{f.name}}{{f.classNumber}}</mat-option>
+  </mat-select>
+</mat-form-field>
+
+<table style="width:100%" *ngIf="scheduleList">
+  <tr>
+    <th>Monday</th>
+    <th>Tuesday</th>
+    <th>Wednesday</th>
+    <th>Thursday</th>
+    <th>Friday</th>
+  </tr>
+  <tr *ngFor="let t of timeIntervals">
+    <td *ngFor="let d of daysOfWeek" class="px-1">
+      <div *ngIf="getSchedule(d,t) != null" (click)="openDialogEditSchedule(getSchedule(d,t))">
+        <p class="text-align-right text-md">{{getSchedule(d,t).teacher.name}}</p>
+        <p class="text-align-center">Aula {{getSchedule(d,t).room.classNumber}} -
+          {{getSchedule(d,t).subject.grade.name}}</p>
+        <p class="text-align-center text-sm">{{getSchedule(d,t).subject.name}}</p>
+      </div>
+      <div *ngIf="getSchedule(d,t) == null" (click)="openDialogNewSchedule(d, t)" style="width: 100%; height: 100%;">
+      </div>
+    </td>
+  </tr>
+</table>
+<button mat-fab color="primary" class="fab" (click)="openAddSchedules()">
+  <mat-icon>add</mat-icon>
+</button>

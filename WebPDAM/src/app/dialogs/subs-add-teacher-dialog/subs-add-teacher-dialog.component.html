@@ -1,0 +1,12 @@
+<h1 mat-dialog-title>Añadir profesor de guardia</h1>
+<div>
+  <div mat-dialog-content class="my-3">
+      <mat-select placeholder="Teacher" [formControl]="form.controls['newTeacher']">
+          <mat-option *ngFor="let t of guardTeacherList" [value]="t.id">{{t.name}}</mat-option>
+        </mat-select>
+  </div>
+  <div mat-dialog-actions class="w-100" fxLayout="row" fxLayoutAlign="space-evenly center">
+    <button mat-raised-button color="accent" [mat-dialog-close]>Cancelar</button>
+    <button mat-raised-button color="primary" class="w-50" type="submit" (click)="onSubmit()" [disabled]="!form.valid">Añadir</button>
+  </div>
+</div>

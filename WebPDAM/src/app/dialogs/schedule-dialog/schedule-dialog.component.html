@@ -1,0 +1,47 @@
+<h1 mat-dialog-title>
+  <ng-template [ngIf]="!edit">New</ng-template>
+  <ng-template [ngIf]="edit">Edit</ng-template> Teacher
+</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content fxLayout="column" fxLayoutAlign="space-around">
+    <div>
+      <mat-form-field class="w-50">
+        <input matInput placeholder="timeInterval" type="text" [formControl]="form.controls['timeInterval']" required>
+      </mat-form-field>
+      <mat-form-field class="w-50">
+        <input matInput placeholder="dayOfWeek" type="text" [formControl]="form.controls['dayOfWeek']" required>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field class="w-25">
+        <mat-select placeholder="Classroom" [formControl]="form.controls['room']">
+          <mat-option *ngFor="let c of classRoomList" [value]="c.id">{{c.classNumber}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <mat-form-field class="w-75">
+        <mat-select placeholder="Teacher" [formControl]="form.controls['teacher']">
+          <mat-option *ngFor="let t of teacherList" [value]="t.id">{{t.name}}</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </div>
+    <mat-form-field class="w-100">
+      <mat-select placeholder="Grade" [formControl]="form.controls['grade']" (valueChange)="selectGrade($event)">
+        <mat-option *ngFor="let grade of gradeList" [value]="grade.id">{{grade.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <mat-select placeholder="Subject" [formControl]="form.controls['subject']" [disabled]="!subjectList">
+        <mat-option *ngFor="let s of subjectList" [value]="s.id">{{s.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </div>
+  <div mat-dialog-actions fxLayout="column" fxLayoutAlign="space-around" *ngIf="!edit;else edit_form">
+    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Add</button>
+  </div>
+  <ng-template #edit_form>
+    <div mat-dialog-actions fxLayout="column" fxLayoutAlign="space-around">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Edit</button>
+      <a mat-raised-button color="warn" style="margin-left: 0!important; margin-top: 1rem;" (click)="delete(this.data.schedule)">Delete</a>
+    </div>
+  </ng-template>
+</form>

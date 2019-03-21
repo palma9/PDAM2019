@@ -1,0 +1,41 @@
+<div [formGroup]="scheduleArrayForm">
+  <div formArrayName="scheduleForm">
+    <div *ngFor="let item of formData.controls; let i = index;">
+      <div [formGroupName]="i" fxLayout="row wrap">
+        <mat-form-field class="w-25">
+          <input matInput placeholder="timeInterval" type="number" min="1" max="6" formControlName="timeInterval"
+            required>
+        </mat-form-field>
+        <mat-form-field class="w-25">
+          <input matInput placeholder="dayOfWeek" type="number" min="1" max="5" formControlName="dayOfWeek" required>
+        </mat-form-field>
+        <mat-form-field class="w-25">
+          <mat-select placeholder="Classroom" formControlName="room">
+            <mat-option *ngFor="let c of classRoomList" [value]="c.id">{{c.classNumber}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="w-25">
+          <mat-select placeholder="Teacher" formControlName="teacher">
+            <mat-option *ngFor="let t of teacherList" [value]="t.id">{{t.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-select placeholder="Grade" formControlName="grade" (valueChange)="selectGrade($event)">
+            <mat-option *ngFor="let grade of gradeList" [value]="grade.id">{{grade.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+        <mat-form-field class="w-50">
+          <mat-select placeholder="Subject" formControlName="subject" [disabled]="!subjectList">
+            <mat-option *ngFor="let s of subjectList" [value]="s.id">{{s.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <hr>
+    </div>
+  </div>
+</div>
+<button mat-stroked-button class="mb-5" color="accent" (click)="addSchedule()">Add Schedule</button>
+<button mat-stroked-button class="mb-5" color="warn" (click)="removeLastSchedule()">Remove Last</button>
+<button mat-fab color="primary" class="fab" (click)="submit()" [disabled]="!scheduleArrayForm.valid">
+  <mat-icon>send</mat-icon>
+</button>

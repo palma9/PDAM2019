@@ -1,0 +1,13 @@
+<div [formGroup]="gradeArrayForm">
+  <div formArrayName="gradeForm" *ngFor="let item of formData.controls; let i = index;">
+    <div [formGroupName]="i" fxLayout="row wrap">
+      <mat-form-field class="w-100">
+        <input matInput placeholder="Name" type="text" formControlName="name" required>
+      </mat-form-field>
+    </div>
+    <hr>
+  </div>
+</div>
+<button mat-stroked-button class="mb-5" color="accent" (click)="addGrade()">Add Grade</button>
+<button mat-stroked-button class="mb-5" color="warn" (click)="removeLastGrade()">Remove Last</button>
+<button mat-fab color="primary" class="fab" (click)="submit()" [disabled]="!gradeArrayForm.valid"><mat-icon>send</mat-icon></button>

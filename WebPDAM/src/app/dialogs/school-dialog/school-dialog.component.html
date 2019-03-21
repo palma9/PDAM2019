@@ -1,0 +1,33 @@
+<h1 mat-dialog-title>
+  <ng-template [ngIf]="!edit">New</ng-template>
+  <ng-template [ngIf]="edit">Edit</ng-template> School
+</h1>
+<form [formGroup]="form" (ngSubmit)="onSubmit()">
+  <div mat-dialog-content fxLayout="column" fxLayoutAlign="space-around">
+    <mat-form-field class="w-100">
+      <input matInput placeholder="Name" type="text" [formControl]="form.controls['name']" required>
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <input matInput placeholder="Contact" type="text" [formControl]="form.controls['contact']" required>
+    </mat-form-field>
+    <mat-form-field class="w-100">
+      <input matInput placeholder="Address" type="text" [formControl]="form.controls['address']" required>
+    </mat-form-field>
+    <div>
+      <mat-form-field class="w-50">
+        <input matInput placeholder="City" type="text" [formControl]="form.controls['city']" required>
+      </mat-form-field>
+      <mat-form-field class="w-50">
+        <input matInput placeholder="Country" type="text" [formControl]="form.controls['country']" required>
+      </mat-form-field>
+    </div>
+  </div>
+  <div mat-dialog-actions fxLayout="column" fxLayoutAlign="space-around" *ngIf="!edit;else edit_form">
+    <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Add</button>
+  </div>
+  <ng-template #edit_form>
+    <div mat-dialog-actions fxLayout="column" fxLayoutAlign="space-around">
+      <button mat-raised-button color="primary" type="submit" [disabled]="!form.valid">Edit</button>
+    </div>
+  </ng-template>
+</form>

@@ -1,0 +1,91 @@
+<mat-accordion *ngIf="isAdmin()">
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Sustituciones sin profesor
+      </mat-panel-title>
+    </mat-expansion-panel-header>
+    <hr>
+    <div *ngFor="let s of emptySubs">
+      <div fxLayout="column" class="ma-1">
+        <div fxLayout="row">
+          <img src="../../../assets/img/ic_warning_24px.svg" style="height:84px">
+          <div>
+            <p>Tramo horario: {{s.schedule.timeInterval}} | {{s.date | date : "dd.MM.y"}} </p>
+            <p class="font-weight-bold text-lg">Aula {{s.schedule.room.classNumber}} - {{s.schedule.subject.grade.name}}
+            </p>
+          </div>
+        </div>
+        <p class="ml-2">{{s.schedule.subject.name}}</p>
+        <div *ngIf="isAdmin()" fxLayoutAlign="end center">
+          <button mat-raised-button color="primary" (click)="addTeacher(s)">Añadir profesor</button>
+          <button mat-raised-button color="warn" class="ml-1" (click)="openDialogDelete(s)">Borrar ausencia</button>
+        </div>
+      </div>
+      <hr>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Mis sustituciones
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <hr>
+    <div *ngFor="let s of substitutions">
+      <div fxLayout="column" class="ma-1">
+        <div fxLayout="row">
+          <img src="../../../assets/img/ic_warning_24px.svg" style="height:84px">
+          <div>
+            <p>Tramo horario: {{s.schedule.timeInterval}} | {{s.date | date : "dd.MM.y"}} </p>
+            <p class="font-weight-bold text-lg">Aula {{s.schedule.room.classNumber}} - {{s.schedule.subject.grade.name}}
+            </p>
+          </div>
+        </div>
+        <p class="ml-2">{{s.schedule.subject.name}}</p>
+      </div>
+      <hr>
+    </div>
+  </mat-expansion-panel>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>
+      <mat-panel-title>
+        Sustituciones del día
+      </mat-panel-title>
+      <mat-panel-description>
+      </mat-panel-description>
+    </mat-expansion-panel-header>
+    <button mat-stroked-button class="w-100" color="primary" (click)="getPDF()">Exportar PDF</button>
+    <hr>
+    <div *ngFor="let s of allSubs">
+      <p>Tramo horario: {{s.schedule.timeInterval}} | {{s.date | date : "dd.MM.y"}} </p>
+      <p>{{s.newTeacher.name}}</p>
+      <p class="font-weight-bold text-lg">Aula {{s.schedule.room.classNumber}} - {{s.schedule.subject.grade.name}}</p>
+      <p>{{s.schedule.subject.name}}</p>
+      <div *ngIf="isAdmin()" fxLayoutAlign="end center">
+        <button mat-raised-button color="warn" (click)="openDialogDelete(s)">Borrar ausencia</button>
+      </div>
+      <hr>
+    </div>
+  </mat-expansion-panel>
+</mat-accordion>
+
+<div *ngIf="!isAdmin()">
+  <h2>Mis sustituciones</h2>
+  <mat-card fxLayout="column" *ngFor="let s of substitutions" class="mat-teal-200 ma-1"
+    [ngClass]="{'mat-teal-200': !isAdmin(), 'mat-red-300': isAdmin() }">
+    <div fxLayout="row">
+      <img src="../../../assets/img/ic_warning_24px.svg" style="height:84px">
+      <div>
+        <p>Tramo horario: {{s.schedule.timeInterval}} | {{s.date | date : "dd.MM.y"}} </p>
+        <p class="font-weight-bold text-lg">Aula {{s.schedule.room.classNumber}} - {{s.schedule.subject.grade.name}}</p>
+      </div>
+    </div>
+    <p class="ml-2">{{s.schedule.subject.name}}</p>
+    <div *ngIf="isAdmin()" fxLayoutAlign="end center">
+      <button mat-raised-button color="primary" (click)="addTeacher(s)">Añadir profesor</button>
+    </div>
+  </mat-card>
+</div>

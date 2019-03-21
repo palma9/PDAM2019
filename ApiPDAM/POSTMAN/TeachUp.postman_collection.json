@@ -1,0 +1,746 @@
+{
+	"info": {
+		"_postman_id": "31fd954d-52b8-4e6e-af0a-a5e76d332b3b",
+		"name": "TeachUp",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "Login (Admin)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{PASSWORD}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{ADMIN_EMAIL}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/auth?access_token={{MASTER_KEY}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{MASTER_KEY}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login (School manager)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{MANAGER_EMAIL}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{PASSWORD}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/auth?access_token={{MASTER_KEY}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{MASTER_KEY}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login (Teacher)",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "password",
+									"value": "{{PASSWORD}}",
+									"type": "string"
+								},
+								{
+									"key": "username",
+									"value": "{{TEACHER_EMAIL}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/auth?access_token={{MASTER_KEY}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"auth"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{MASTER_KEY}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Teacher",
+			"item": [
+				{
+					"name": "Create (Teacher)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"access_token\": \"{{MANAGER_TOKEN}}\",\n\t\"email\": \"{{TEACHER_EMAIL}}\",\n\t\"password\": \"{{PASSWORD}}\",\n\t\"name\": \"{{TEACHER_NAME}}\",\n\t\"number\": \"{{TEACHER_NUMBER}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/teachers/",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"teachers",
+								""
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create (SchoolManager)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"access_token\": \"{{ADMIN_TOKEN}}\",\n\t\"email\": \"{{MANAGER_EMAIL}}\",\n\t\"password\": \"{{PASSWORD}}\",\n\t\"name\": \"{{MANAGER_NAME}}\",\n\t\"number\": \"{{MANAGER_NUMBER}}\",\n\t\"school\": \"{{SCHOOL_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "localhost:9000/teachers/schoolManager",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"teachers",
+								"schoolManager"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register (SchoolManager)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"{{MANAGER_EMAIL}}\",\n\t\"password\": \"{{PASSWORD}}\",\n\t\"name\": \"{{MANAGER_NAME}}\"\n}"
+						},
+						"url": {
+							"raw": "localhost:9000/teachers/schoolManager?access_token={{MASTER_KEY}}",
+							"host": [
+								"localhost"
+							],
+							"port": "9000",
+							"path": [
+								"teachers",
+								"schoolManager"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{MASTER_KEY}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/teachers?access_token={{MANAGER_TOKEN}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"teachers"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{MANAGER_TOKEN}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/teachers/5c84f5108f5f36237433c312?access_token={{MANAGER_TOKEN}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"teachers",
+								"5c84f5108f5f36237433c312"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{MANAGER_TOKEN}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "EditOne",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"access_token\": \"{{MANAGER_TOKEN}}\",\n\t\"email\": \"{{MANAGER_EMAIL}}\",\n\t\"password\": \"{{PASSWORD}}\",\n\t\"name\": \"{{MANAGER_NAME}}\",\n\t\"number\": \"{{MANAGER_NUMBER}}\",\n\t\"school\": \"{{SCHOOL_ID}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/teachers/5c84f5108f5f36237433c312",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"teachers",
+								"5c84f5108f5f36237433c312"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/teachers/5c85204c2b24382ff4d6cdc3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"teachers",
+								"5c85204c2b24382ff4d6cdc3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "User",
+			"item": [
+				{
+					"name": "getAll",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users?access_token={{ADMIN_TOKEN}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{ADMIN_TOKEN}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMe",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/me?access_token={{TEACHER_TOKEN}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"me"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{TEACHER_TOKEN}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/5c84f5108f5f36237433c312?access_token={{ADMIN_TOKEN}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"5c84f5108f5f36237433c312"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{ADMIN_TOKEN}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create (Admin)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"email\": \"{{ADMIN_EMAIL}}\",\n\t\"name\": \"{{ADMIN_NAME}}\",\n\t\"password\": \"{{PASSWORD}}\",\n\t\"securityCode\": \"{{SECURITY_CODE}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users?access_token={{MASTER_KEY}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{MASTER_KEY}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"access_token\": \"{{MANAGER_TOKEN}}\",\n\t\"name\": \"{{MANAGER_NAME}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/5c84f5108f5f36237433c312",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"5c84f5108f5f36237433c312"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "ChangePassword",
+					"request": {
+						"auth": {
+							"type": "basic",
+							"basic": [
+								{
+									"key": "username",
+									"value": "{{MANAGER_EMAIL}}",
+									"type": "string"
+								},
+								{
+									"key": "password",
+									"value": "{{PASSWORD}}",
+									"type": "string"
+								}
+							]
+						},
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"password\": \"{{PASSWORD}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/users/me/password",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"me",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/users/5c85204c2b24382ff4d6cdc3",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"users",
+								"5c85204c2b24382ff4d6cdc3"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "School",
+			"item": [
+				{
+					"name": "Create",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"access_token\": \"{{ADMIN_TOKEN}}\",\n\t\"name\": \"{{SCHOOL_NAME}}\",\n\t\"contact\": \"{{SCHOOL_CONTACT}}\",\n\t\"address\": \"{{SCHOOL_ADDRESS}}\",\n\t\"city\": \"{{SCHOOL_CITY}}\",\n\t\"country\": \"{{SCHOOL_COUNTRY}}\"\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/schools",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"schools"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "GetAll",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "",
+								"value": "",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/schools?access_token={{ADMIN_TOKEN}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"schools"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{ADMIN_TOKEN}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getMine",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/schools/mine?access_token={{TEACHER_TOKEN}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"schools",
+								"mine"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{TEACHER_TOKEN}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "getOne",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/schools/5c84fc7952448843fc59ae72?access_token={{ADMIN_TOKEN}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"schools",
+								"5c84fc7952448843fc59ae72"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{ADMIN_TOKEN}}"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Edit",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n\t\"access_token\": \"{{ADMIN_TOKEN}}\",\n\t\"subscriptionEnd\": \"{{SCHOOL_SUBEND}}\",\n\t\"name\": \"{{SCHOOL_NAME}}\",\n\t\"contact\": \"{{SCHOOL_CONTACT}}\",\n\t\"address\": \"{{SCHOOL_ADDRESS}}\",\n\t\"city\": \"{{SCHOOL_CITY}}\",\n\t\"country\": \"{{SCHOOL_COUNTRY}}\",\n\t\"location\": {{SCHOOL_LOCATION}}\n}"
+						},
+						"url": {
+							"raw": "{{URL}}/schools/5c84fc7952448843fc59ae72",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"schools",
+								"5c84fc7952448843fc59ae72"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete",
+					"request": {
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": ""
+						},
+						"url": {
+							"raw": "{{URL}}/schools/5c8524698eafcb2ef8e62b91?access_token={{ADMIN_TOKEN}}",
+							"host": [
+								"{{URL}}"
+							],
+							"path": [
+								"schools",
+								"5c8524698eafcb2ef8e62b91"
+							],
+							"query": [
+								{
+									"key": "access_token",
+									"value": "{{ADMIN_TOKEN}}"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}

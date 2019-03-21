@@ -1,0 +1,19 @@
+<div [formGroup]="teacherArrayForm">
+  <div formArrayName="teacherForm" *ngFor="let item of formData.controls; let i = index;">
+    <div [formGroupName]="i" fxLayout="row wrap">
+      <mat-form-field class="w-25">
+        <input matInput placeholder="Name" type="text" formControlName="name" required>
+      </mat-form-field>
+      <mat-form-field class="w-50">
+        <input matInput placeholder="Email" type="text" formControlName="email" required>
+      </mat-form-field>
+      <mat-form-field class="w-25">
+        <input matInput placeholder="Number" type="text" formControlName="number" required>
+      </mat-form-field>
+    </div>
+    <hr>
+  </div>
+</div>
+<button mat-stroked-button class="mb-5" color="accent" (click)="addTeacher()">Add Teacher</button>
+<button mat-stroked-button class="mb-5" color="warn" (click)="removeLastTeacher()">Remove Last</button>
+<button mat-fab color="primary" class="fab" (click)="submit()" [disabled]="!teacherArrayForm.valid"><mat-icon>send</mat-icon></button>

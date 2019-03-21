@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/navigation_schedule"
+        android:icon="@drawable/ic_schedule_black_24dp"
+        android:title="@string/schedules" />
+    <item
+        android:id="@+id/navigation_teachers"
+        android:icon="@drawable/ic_people_outline_black_24dp"
+        android:title="@string/teachers" />
+    <item
+        android:id="@+id/navigation_unsubstitutes"
+        android:icon="@drawable/ic_error_outline_black_24dp"
+        android:title="@string/unsubstituted"/>
+    <item
+        android:id="@+id/navigation_notifications"
+        android:icon="@drawable/ic_notifications_black_24dp"
+        android:title="@string/notifications"/>
+    <item
+        android:id="@+id/navigation_profile"
+        android:icon="@drawable/ic_person_outline_black_24dp"
+        android:title="@string/profile"/>
+
+</menu>

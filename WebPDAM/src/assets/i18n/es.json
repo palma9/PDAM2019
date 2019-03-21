@@ -1,0 +1,15 @@
+{
+    "LOGOUT": "Cerrar sesion",
+    "SCHOOLS":"Colegios",
+    "TEACHERMANAGERS": "Profesor encargado",
+    "CREATESCHOOL": "Crear colegio",
+    "SCHEDULE": "Horario",
+    "DAILYSCHEDULE": "Horario del dia",
+    "NOTIFICATIONS": "Notificationes",
+    "PROFILE": "Perfil",
+    "CLASSROOMS": "Clase",
+    "SUBJECTS": "Asignaturas",
+    "GRADES": "Cursos",
+    "TEACHERS": "Profesores",
+    "SUBSTITUTIONS": "Sustituciones"
+}

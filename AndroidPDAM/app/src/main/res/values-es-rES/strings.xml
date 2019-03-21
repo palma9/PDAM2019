@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="action_settings">Ajustes</string>
+
+    <!-- Shared preferences config -->
+    <string name="sharedpreferences_filename">androidPDAM_sharedPreferences</string>
+
+    <!-- LoginActivity -->
+    <string name="signIn">Iniciar sesión</string>
+    <string name="hint_password">Contraseña</string>
+    <string name="error_valid_email">Introduce un email correcto</string>
+    <string name="error_short_password">La contraseña debe contener al menos 6 caracteres</string>
+    <string name="error_login">Error al intentar loguear</string>
+
+    <!-- Retrofit -->
+    <string name="error_server_connection">Error. No se puede conectar al servidor</string>
+    <string name="error_admin_login">El administrador no tiene permiso en la aplicación</string>
+
+    <!-- Profile Fragment -->
+    <string name="edit_profile">Editar perfil</string>
+    <string name="absences">Faltas.</string>
+    <string name="substitutions">Sustituciones.</string>
+    <string name="weekly_hours">Horas semanales.</string>
+
+    <!-- Notifications -->
+    <string name="classroom">Aula</string>
+    <string name="timeInterval">Tramo</string>
+    <string name="logout">Cerrar sesión</string>
+
+    <!-- Extra -->
+    <string name="accept">Aceptar</string>
+    <string name="cancel">Cancelar</string>
+    <string name="substitutorTeacher">Añadir sustituto</string>
+    <string name="monday">Lunes</string>
+    <string name="friday">Viernes</string>
+    <string name="thursday">Jueves</string>
+    <string name="wednesday">Miercoles</string>
+    <string name="tuesday">Martes</string>
+
+    <!-- Editar perfil -->
+    <string name="changePicture">Cambiar foto</string>
+    <string name="name">Name</string>
+    <string name="title_activity_edit_profile">Editar perfil</string>
+    <string name="edit_picture">Editar imagen</string>
+    <string name="hint_old_password">Contraseña antigua</string>
+    <string name="hint_new_password">Contraseña nueva</string>
+    <string name="edit_password">Editar contraseña</string>
+    <string name="error_name_empty">El nombre no puede estar vacio</string>
+
+    <!-- Teacher Profile -->
+    <string name="title_activity_teacher_profile">Profesor</string>
+    <string name="newAbsence">Nueva ausencia</string>
+    <string name="search">Buscar</string>
+
+    <!-- Teacher dialog Absence -->
+    <string name="date">Fecha</string>
+    <string name="guards">Guardias</string>
+    <string name="createAbsence">Añadir ausencia</string>
+    <string name="substitute">Sustituto</string>
+
+    <!-- Extra UI -->
+    <string name="connection_fails">Oops, algo ha fallado</string>
+    <string name="no_notification">No hay notificaciones</string>
+
+    <!-- Menu item navigation -->
+    <string name="schedules">Horarios</string>
+    <string name="teachers">Profesores</string>
+    <string name="unsubstituted">Sin profesor</string>
+    <string name="notifications">Notificaciones</string>
+    <string name="profile">Perfil</string>
+
+</resources>

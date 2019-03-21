@@ -1,0 +1,81 @@
+<resources>
+    <string name="app_name" translatable="false">TeachUp</string>
+    <string name="action_settings">Settings</string>
+
+    <!-- Shared preferences config -->
+    <string name="sharedpreferences_filename">androidPDAM_sharedPreferences</string>
+    <string name="jwt_key" translatable="false">jwt_key</string>
+    <string name="userId" translatable="false">userId</string>
+    <string name="userRole" translatable="false">userRole</string>
+
+    <!-- LoginActivity -->
+    <string name="signIn">Sign in</string>
+    <string name="hint_email" translatable="false">Email</string>
+    <string name="hint_password">Password</string>
+    <string name="error_valid_email">enter a valid email address</string>
+    <string name="error_short_password">Password must containt at least 6 characters</string>
+    <string name="error_login">Error while trying to login</string>
+
+    <!-- Retrofit -->
+    <string name="error_server_connection">Error. Can\'t connect to server</string>
+    <string name="error_admin_login">Admin role don\'t have permissions in Android APP.</string>
+
+    <!-- Profile Fragment -->
+    <string name="edit_profile">Edit profile</string>
+    <string name="absences">Absences.</string>
+    <string name="substitutions">Substitutions.</string>
+    <string name="weekly_hours">Weekly hours.</string>
+
+    <!-- Notifications -->
+    <string name="classroom">Classroom</string>
+    <string name="timeInterval">Time interval</string>
+
+    <!-- Extra -->
+    <string name="dash" translatable="false">-</string>
+    <string name="whiteSpace" translatable="false"> </string>
+    <string name="logout">Logout</string>
+    <string name="accept">Accept</string>
+    <string name="cancel">Cancel</string>
+    <string name="substitutorTeacher">Add Substitute</string>
+
+    <!-- WeekDays -->
+    <string name="monday">Monday</string>
+    <string name="tuesday">Tuesday</string>
+    <string name="wednesday">Wednesday</string>
+    <string name="thursday">Thursday</string>
+    <string name="friday">Friday</string>
+
+    <!-- Edit profile -->
+    <string name="changePicture">Change picture</string>
+    <string name="name">Name</string>
+    <string name="title_activity_edit_profile">Edit profile</string>
+    <string name="edit_picture">Edit picture</string>
+    <string name="hint_old_password">Old password</string>
+    <string name="hint_new_password">New password</string>
+    <string name="edit_password">Edit password</string>
+    <string name="error_name_empty">Name can\'t be empty</string>
+
+    <!-- Teacher Profile -->
+    <string name="title_activity_teacher_profile">Teacher</string>
+    <string name="newAbsence">New absence</string>
+    <string name="search">Search</string>
+
+    <!-- Teacher dialog Absence -->
+    <string name="date">Date</string>
+    <string name="guards">Guards</string>
+    <string name="createAbsence">Add absence</string>
+    <string name="substitute">Substitute</string>
+
+    <!-- Extra UI -->
+    <string name="connection_fails">Oops, something went wrong</string>
+    <string name="no_notification">There aren\'t any notification</string>
+
+    <!-- Menu item navigation -->
+    <string name="schedules">Schedules</string>
+    <string name="teachers">Teachers</string>
+    <string name="unsubstituted">Unsubstituted</string>
+    <string name="notifications">Notifications</string>
+    <string name="profile">Profile</string>
+
+
+</resources>
