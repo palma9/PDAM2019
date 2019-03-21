@@ -38,7 +38,10 @@ export class NotificationComponent implements OnInit {
   }
 
   getMines() {
-    this.substitutionService.getAllMines().subscribe(s => this.substitutions = s.rows);
+    const date = new Date();
+    const dateFormat = `${date.getFullYear()}-${date.getUTCMonth() + 1}-${date.getDate()}`;
+    const query = `date=${dateFormat}`;
+    this.substitutionService.getAllMines(query).subscribe(s => this.substitutions = s.rows);
   }
 
   getAll() {

@@ -33,8 +33,8 @@ export class SubstitutionService {
     return this.http.post<ResponseContainer<SubstitutionResponse>>(`${baseUrl}/absence`, data, this.requestOptions);
   }
 
-  getAllMines(): Observable<ResponseContainer<SubstitutionResponse>> {
-    return this.http.get<ResponseContainer<SubstitutionResponse>>(`${baseUrl}`, this.requestOptions);
+  getAllMines(query): Observable<ResponseContainer<SubstitutionResponse>> {
+    return this.http.get<ResponseContainer<SubstitutionResponse>>(`${baseUrl}?${query}`, this.requestOptions);
   }
 
   getAll(): Observable<ResponseContainer<SubstitutionResponse>> {
